@@ -2,8 +2,6 @@
 
 A lightweight social presence layer for AI coding agents. See who else is coding right now.
 
-*"You're never really coding alone."*
-
 ## Install
 
 ### Claude Code Plugin (recommended)
@@ -13,7 +11,7 @@ claude plugin install github:binora/vibes
 
 ### Or via npm
 ```bash
-claude mcp add vibes-mcp -- npx vibes-mcp
+claude mcp add vibes-mcp -- npx vibes-mcp@latest
 ```
 
 ## Usage
@@ -42,10 +40,17 @@ claude mcp add vibes-mcp -- npx vibes-mcp
 
 ## How It Works
 
-1. Your MCP server sends a heartbeat every 30s
+1. Your MCP server sends a heartbeat every 60s
 2. HyperLogLog counts unique active users
 3. Drops are stored in Redis, scoped by agent
 4. Everything auto-expires - no data hoarding
+
+## Configuration
+
+| Env Var | Default | Description |
+|---------|---------|-------------|
+| `VIBES_HEARTBEAT_SECONDS` | 60 | Heartbeat interval (min: 60) |
+| `VIBES_API_URL` | https://vibes-api.fly.dev | API endpoint |
 
 ## Rate Limits
 
