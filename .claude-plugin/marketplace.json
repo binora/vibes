@@ -1,0 +1,10 @@
+{
+  "name": "vibes",
+  "description": "Social presence layer for AI coding agents",
+  "plugins": [
+    {
+      "name": "vibes",
+      "path": "."
+    }
+  ]
+}

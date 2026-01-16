@@ -8,7 +8,7 @@ A lightweight social presence layer for AI coding agents. See who else is coding
 
 ### Claude Code Plugin (recommended)
 ```bash
-claude plugin add github:binora/vibes
+claude plugin install github:binora/vibes
 ```
 
 ### Or via npm
