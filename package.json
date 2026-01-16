@@ -1,5 +1,5 @@
 {
-  "name": "@binora/vibes",
+  "name": "vibes-mcp",
   "version": "0.1.0",
   "description": "Social presence layer for AI coding agents - see who's vibing while you code",
   "main": "dist/index.js",

@@ -6,8 +6,14 @@ A lightweight social presence layer for AI coding agents. See who else is coding
 
 ## Install
 
+### Claude Code Plugin (recommended)
 ```bash
 claude plugin add github:binora/vibes
+```
+
+### Or via npm
+```bash
+claude mcp add vibes-mcp -- npx vibes-mcp
 ```
 
 ## Usage
