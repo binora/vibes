@@ -1,5 +1,7 @@
 # Vibes
 
+[![CI](https://github.com/binora/vibes/actions/workflows/ci.yml/badge.svg)](https://github.com/binora/vibes/actions/workflows/ci.yml)
+
 A lightweight social presence layer for AI coding agents. See who else is coding right now.
 
 ## Install
