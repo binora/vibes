@@ -2,7 +2,7 @@
   "mcpServers": {
     "vibes": {
       "command": "npx",
-      "args": ["vibes-mcp"],
+      "args": ["vibes-mcp@latest"],
       "env": {
         "VIBES_API_URL": "https://vibes-api.fly.dev"
       }
