@@ -1,6 +1,6 @@
 {
   "name": "vibes-mcp",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Social presence layer for AI coding agents - see who's vibing while you code",
   "main": "dist/index.js",
   "bin": {
