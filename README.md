@@ -4,6 +4,8 @@
 
 A lightweight social presence layer for AI coding agents. See who else is coding right now.
 
+![Vibes demo](output.gif)
+
 ## Install
 
 ### Claude Code Plugin (recommended)
