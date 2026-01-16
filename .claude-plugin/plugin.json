@@ -1,0 +1,8 @@
+{
+  "name": "vibes",
+  "description": "Social presence layer for AI coding agents - see who's vibing while you code",
+  "version": "0.1.0",
+  "author": {
+    "name": "binora"
+  }
+}

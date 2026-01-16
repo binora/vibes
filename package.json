@@ -1,0 +1,46 @@
+{
+  "name": "@binora/vibes",
+  "version": "0.1.0",
+  "description": "Social presence layer for AI coding agents - see who's vibing while you code",
+  "main": "dist/index.js",
+  "bin": {
+    "vibes": "dist/index.js",
+    "vibes-mcp": "dist/index.js"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsc --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "files": [
+    "dist",
+    ".claude-plugin",
+    "commands",
+    ".mcp.json",
+    "README.md"
+  ],
+  "keywords": [
+    "mcp",
+    "vibes",
+    "ai",
+    "coding",
+    "social",
+    "claude-code",
+    "claude-code-plugin"
+  ],
+  "author": "binora",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/binora/vibes"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.7.0"
+  }
+}
