@@ -65,16 +65,17 @@ function detectAgent(): string {
   return "other";
 }
 
-// API client
-interface Drop {
+// API client (exported for testing)
+export interface Drop {
   m: string;
   t: string;
 }
 
-interface VibesResponse {
+export interface VibesResponse {
   drops: Drop[];
   n: number;
   ok: boolean;
+  w: number; // weekly drops count (global)
 }
 
 async function sendHeartbeat(clientId: string, agent: string): Promise<number> {
@@ -110,12 +111,12 @@ async function postVibes(
     });
     return await res.json() as VibesResponse;
   } catch {
-    return { drops: [], n: 0, ok: false };
+    return { drops: [], n: 0, ok: false, w: 0 };
   }
 }
 
-// Format output for display
-function formatOutput(response: VibesResponse, didPost: boolean): string {
+// Format output for display (exported for testing)
+export function formatOutput(response: VibesResponse, didPost: boolean): string {
   const lines: string[] = [];
 
   if (didPost && response.ok) {
@@ -124,7 +125,16 @@ function formatOutput(response: VibesResponse, didPost: boolean): string {
 
   // Subtract 1 to exclude self from count
   const others = Math.max(0, response.n - 1);
-  lines.push(`💭 ${others} other${others === 1 ? "" : "s"} vibing\n`);
+
+  // Build status line with optional weekly count
+  let statusLine = others > 0
+    ? `💭 ${others} other${others === 1 ? "" : "s"} vibing`
+    : "💭 Quiet right now...";
+
+  if (response.w > 0) {
+    statusLine += ` · ${response.w} drop${response.w === 1 ? "" : "s"} this week`;
+  }
+  lines.push(statusLine + "\n");
 
   if (response.drops.length > 0) {
     for (const drop of response.drops) {
@@ -135,7 +145,7 @@ function formatOutput(response: VibesResponse, didPost: boolean): string {
       lines.push(msg + " ".repeat(padding) + time);
     }
   } else {
-    lines.push("\nNo vibes yet. Be the first!");
+    lines.push("\nDrop a vibe to start the conversation!");
   }
 
   return lines.join("\n");
