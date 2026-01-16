@@ -13,7 +13,11 @@ import { randomUUID } from "crypto";
 
 // Configuration
 const API_URL = process.env.VIBES_API_URL || "https://vibes-api.fly.dev";
-const HEARTBEAT_INTERVAL = 30_000; // 30 seconds
+const MIN_HEARTBEAT_SECONDS = 60;
+const HEARTBEAT_INTERVAL = Math.max(
+  MIN_HEARTBEAT_SECONDS,
+  parseInt(process.env.VIBES_HEARTBEAT_SECONDS || "60", 10)
+) * 1000;
 
 // Client ID storage
 function getVibesDir(): string {
