@@ -1,10 +1,17 @@
 {
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "vibes",
+  "version": "1.0.0",
   "description": "Social presence layer for AI coding agents",
+  "owner": {
+    "name": "binora",
+    "email": "binora@users.noreply.github.com"
+  },
   "plugins": [
     {
       "name": "vibes",
-      "path": "."
+      "description": "See who else is coding right now",
+      "source": "."
     }
   ]
 }
