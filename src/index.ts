@@ -12,7 +12,7 @@ import { join } from "path";
 import { randomUUID } from "crypto";
 
 // Configuration
-const API_URL = process.env.VIBES_API_URL || "http://localhost:8080";
+const API_URL = process.env.VIBES_API_URL || "https://vibes-api.fly.dev";
 const HEARTBEAT_INTERVAL = 30_000; // 30 seconds
 
 // Client ID storage

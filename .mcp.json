@@ -2,7 +2,10 @@
   "mcpServers": {
     "vibes": {
       "command": "node",
-      "args": ["dist/index.js"]
+      "args": ["dist/index.js"],
+      "env": {
+        "VIBES_API_URL": "https://vibes-api.fly.dev"
+      }
     }
   }
 }
