@@ -13,10 +13,47 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            color: #1a1a1a;
-            background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
+            color: #3d3229;
+            background: linear-gradient(180deg, #faf8f5 0%, #f5efe8 100%);
             line-height: 1.7;
             font-size: 18px;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .hero {
+            animation: fadeIn 1s ease-out;
+        }
+
+        .demo-section {
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .two-col > div:first-child {
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .two-col > div:last-child {
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        footer {
+            animation: fadeIn 0.8s ease-out 0.8s both;
         }
 
         /* GitHub Icon */
@@ -28,14 +65,15 @@
         }
 
         .github-corner a {
-            color: #6c757d;
+            color: #8b7355;
             text-decoration: none;
             opacity: 0.6;
-            transition: opacity 0.2s ease;
+            transition: all 0.3s ease;
         }
 
         .github-corner a:hover {
             opacity: 1;
+            transform: scale(1.1);
         }
 
         /* Container */
@@ -57,13 +95,13 @@
             font-size: clamp(2.5rem, 6vw, 4rem);
             font-weight: 300;
             margin-bottom: 2rem;
-            color: #495057;
+            color: #5c4a3d;
             letter-spacing: -0.02em;
         }
 
         .hero p {
             font-size: 1.25rem;
-            color: #6c757d;
+            color: #8b7355;
             margin-bottom: 3rem;
             font-weight: 300;
         }
@@ -76,16 +114,17 @@
         }
 
         .hero-links a {
-            color: #495057;
+            color: #5c4a3d;
             text-decoration: none;
             font-size: 1.1rem;
             opacity: 0.7;
-            transition: opacity 0.2s ease;
+            transition: all 0.3s ease;
             font-weight: 400;
         }
 
         .hero-links a:hover {
             opacity: 1;
+            color: #c4956a;
         }
 
         /* Section */
@@ -97,23 +136,29 @@
             font-size: 2rem;
             font-weight: 300;
             margin-bottom: 2rem;
-            color: #495057;
+            color: #5c4a3d;
             letter-spacing: -0.01em;
         }
 
         h3 {
             font-size: 1.3rem;
             margin-bottom: 1.25rem;
-            color: #495057;
+            color: #5c4a3d;
             font-weight: 400;
         }
 
         /* Card */
         .card {
-            background: white;
+            background: #fffcf8;
             border-radius: 12px;
             padding: 2.5rem;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            box-shadow: 0 2px 12px rgba(139, 115, 85, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(139, 115, 85, 0.12);
         }
 
         /* Two Column Grid */
@@ -142,14 +187,90 @@
         .demo-gif img {
             width: 100%;
             border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 24px rgba(139, 115, 85, 0.15);
+            transition: all 0.4s ease;
+        }
+
+        .demo-gif img:hover {
+            transform: scale(1.01);
+            box-shadow: 0 8px 40px rgba(139, 115, 85, 0.2);
         }
 
         .demo-caption {
             margin-top: 1.5rem;
-            color: #6c757d;
+            color: #8b7355;
             font-size: 1rem;
             font-weight: 300;
+        }
+
+        /* Floating Features */
+        .floating-features {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .floating-features span {
+            position: absolute;
+            color: #c4956a;
+            font-size: 0.9rem;
+            font-weight: 300;
+            opacity: 0.4;
+            pointer-events: auto;
+            transition: opacity 0.3s ease;
+        }
+
+        .floating-features span:hover {
+            opacity: 0.8;
+        }
+
+        .floating-features .f1 {
+            top: 20%;
+            left: 5%;
+            animation: float1 8s ease-in-out infinite;
+        }
+
+        .floating-features .f2 {
+            top: 60%;
+            right: 8%;
+            animation: float2 10s ease-in-out infinite;
+        }
+
+        .floating-features .f3 {
+            bottom: 25%;
+            left: 8%;
+            animation: float3 9s ease-in-out infinite;
+        }
+
+        .floating-features .f4 {
+            top: 35%;
+            right: 5%;
+            animation: float4 7s ease-in-out infinite;
+        }
+
+        @keyframes float1 {
+            0%, 100% { transform: translate(0, 0) rotate(-5deg); }
+            50% { transform: translate(10px, -15px) rotate(5deg); }
+        }
+
+        @keyframes float2 {
+            0%, 100% { transform: translate(0, 0) rotate(3deg); }
+            50% { transform: translate(-15px, 10px) rotate(-3deg); }
+        }
+
+        @keyframes float3 {
+            0%, 100% { transform: translate(0, 0) rotate(2deg); }
+            50% { transform: translate(12px, -8px) rotate(-4deg); }
+        }
+
+        @keyframes float4 {
+            0%, 100% { transform: translate(0, 0) rotate(-3deg); }
+            50% { transform: translate(-8px, 12px) rotate(4deg); }
         }
 
         /* Installation Section */
@@ -160,41 +281,48 @@
         }
 
         .code-block {
-            background: #f8f9fa;
-            color: #495057;
-            padding: 1.5rem;
+            background: #f5efe8;
+            color: #5c4a3d;
+            padding: 1.5rem 5rem 1.5rem 1.5rem;
             border-radius: 8px;
             font-family: 'SF Mono', 'Monaco', 'Menlo', monospace;
             font-size: 1rem;
             position: relative;
             overflow-x: auto;
-            border: 1px solid #e9ecef;
+            border: 1px solid #e8dfd4;
+            transition: all 0.3s ease;
+        }
+
+        .code-block:hover {
+            border-color: #c4956a;
         }
 
         .copy-btn {
             position: absolute;
-            top: 1rem;
+            top: 50%;
             right: 1rem;
+            transform: translateY(-50%);
             background: transparent;
-            border: 1px solid #dee2e6;
-            color: #6c757d;
+            border: 1px solid #d4c4b0;
+            color: #8b7355;
             padding: 0.4rem 0.8rem;
             border-radius: 4px;
             cursor: pointer;
             font-size: 0.85rem;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
             font-weight: 400;
         }
 
         .copy-btn:hover {
-            background: #f8f9fa;
-            border-color: #adb5bd;
+            background: #f5efe8;
+            border-color: #c4956a;
+            color: #5c4a3d;
         }
 
         .copy-btn.copied {
-            background: #d1e7dd;
-            border-color: #badbcc;
-            color: #0f5132;
+            background: #e8dfc8;
+            border-color: #c4956a;
+            color: #5c4a3d;
         }
 
         .use-card .code-block {
@@ -209,18 +337,18 @@
         footer {
             text-align: center;
             padding: 4rem 2rem 3rem;
-            color: #6c757d;
+            color: #8b7355;
         }
 
         footer a {
-            color: #6c757d;
+            color: #8b7355;
             text-decoration: none;
-            transition: opacity 0.2s ease;
+            transition: all 0.3s ease;
             font-weight: 400;
         }
 
         footer a:hover {
-            opacity: 0.7;
+            color: #c4956a;
         }
 
         .footer-links {
@@ -236,87 +364,17 @@
             font-size: 0.9rem;
         }
 
-        /* Dark Mode */
-        @media (prefers-color-scheme: dark) {
-            body {
-                color: #d4d4d4;
-                background: linear-gradient(180deg, #2a2d35 0%, #1e2028 100%);
-            }
-
-            .hero h1, h2, h3 {
-                color: #e8e8e8;
-            }
-
-            .hero p, .hero-links a {
-                color: #b0b0b0;
-            }
-
-            .hero-links a:hover {
-                color: #e8e8e8;
-            }
-
-            .github-corner a {
-                color: #b0b0b0;
-            }
-
-            .github-corner a:hover {
-                color: #e8e8e8;
-            }
-
-            .card {
-                background: #32353d;
-                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-            }
-
-            .demo-gif img {
-                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-            }
-
-            .demo-caption {
-                color: #909090;
-            }
-
-            .code-block {
-                background: #282c34;
-                color: #d4d4d4;
-                border: 1px solid #40444d;
-            }
-
-            .copy-btn {
-                background: transparent;
-                border: 1px solid #40444d;
-                color: #b0b0b0;
-            }
-
-            .copy-btn:hover {
-                background: #3a3e47;
-                border-color: #909090;
-            }
-
-            .copy-btn.copied {
-                background: #2d4a3e;
-                border-color: #3d6a50;
-                color: #8dd4a6;
-            }
-
-            footer {
-                color: #b0b0b0;
-            }
-
-            footer a {
-                color: #b0b0b0;
-            }
-
-            footer a:hover {
-                color: #e8e8e8;
-            }
-        }
-
         /* Responsive */
         @media (max-width: 900px) {
             .two-col {
                 grid-template-columns: 1fr;
                 gap: 4rem;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .floating-features {
+                display: none;
             }
         }
 
@@ -341,6 +399,14 @@
     </style>
 </head>
 <body>
+    <!-- Floating Features -->
+    <div class="floating-features">
+        <span class="f1">Anonymous</span>
+        <span class="f2">Ephemeral</span>
+        <span class="f3">Agent-scoped</span>
+        <span class="f4">Minimal</span>
+    </div>
+
     <!-- GitHub Icon -->
     <div class="github-corner">
         <a href="https://github.com/binora/vibes" target="_blank" aria-label="View on GitHub">
@@ -353,7 +419,7 @@
     <!-- Hero Section -->
     <section class="hero">
         <h1>feel the vibes while you code</h1>
-        <p>Social presence for AI coding agents.</p>
+        <p>Anonymous status updates for AI coders. Ephemeral and minimal.</p>
         <div class="hero-links">
             <a href="#demo">demo</a>
             <a href="#install">install</a>
